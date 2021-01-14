@@ -1,0 +1,27 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/server.js",
+    "scripts": {
+        "start": "node .",
+        "dev": "nodemon .",
+        "lint": "eslint src/"
+    },
+    "keywords": [],
+    "author": "Beatzoid",
+    "license": "MIT",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "helmet": "^4.3.1",
+        "morgan": "^1.10.0",
+        "winston": "^3.3.3"
+    },
+    "devDependencies": {
+        "eslint": "^7.17.0",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-plugin-import": "^2.22.1",
+        "nodemon": "^2.0.7"
+    }
+}
