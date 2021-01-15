@@ -7,8 +7,11 @@ const mongoose = require("mongoose");
 
 const logger = require("./utils/logger");
 const { notFound, errorHandler } = require("./utils/middlewares");
+const logRoutes = require("./api/logRoutes");
 
 const app = express();
+
+// Middleware
 app.use(morgan("common"));
 app.use(helmet());
 app.use(
@@ -16,6 +19,7 @@ app.use(
         origin: process.env.CORS_ORIGIN
     })
 );
+app.use(express.json());
 
 // Database
 mongoose
@@ -26,12 +30,15 @@ mongoose
     .then(logger.info("Database connected!"))
     .catch((err) => logger.error(err));
 
+// Routes
 app.get("/", (req, res) => {
     res.json({
         message: "Hello! 👋"
     });
 });
+app.use("/api/logs", logRoutes);
 
+// Custom Middleware
 app.use(notFound);
 app.use(errorHandler);
 
