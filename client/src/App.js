@@ -12,9 +12,10 @@ const App = () => {
     const [viewport, setViewport] = useState({
         width: 400,
         height: 400,
-        latitude: 37.7577,
-        longitude: -122.4376,
-        zoom: 8
+        // This is the center of the United States
+        latitude: 39,
+        longitude: -98,
+        zoom: 4
     });
 
     // Resize the map to the current window size
@@ -50,6 +51,7 @@ const App = () => {
     return (
         <ReactMapGL
             {...viewport}
+            mapStyle="mapbox://styles/thecjreynolds/ck117fnjy0ff61cnsclwimyay"
             onViewportChange={(v) => updateViewport(v)}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         />
